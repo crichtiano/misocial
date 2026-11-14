@@ -1,0 +1,96 @@
+-
+    let mainMenu = [
+        ['Home', 'index.html'],
+        ['Why MISOCIAL', '#'],
+        ['Features', '#'],
+        ['Articles', '#'],
+        ['Pricing', '#'],
+    ]
+
+mixin menu(mainMenu, colorTheme='light')
+    .navigation 
+        .logo 
+            a(href="index.htnl")
+                img(src="assets/images/logo.png", alt="")
+        nav.flex.nav 
+            ul(class=colorTheme).menu
+                for item in mainMenu 
+                    li 
+                        a(href=item[1]) #{item[0]}
+            p(class=colorTheme).cta_empty
+                a(href="#").btm get started
+
+-
+    let cardInfo = {
+        satelite: {
+            img: "assets/images/cosmo.svg",
+            alt: "",
+            personal: "personal",
+            corrency: "$",
+            price: 0,
+            isMonth: true,
+            description: [
+                "Lorem ipsum dolor sit amet.",
+                "sed do eiusmod tempor incididunt ut.",
+                "Labore et dolore magna aliqua.",
+                "quis nostrud exercitation ullamco laboris.",
+                "Ea commodo consequat.",
+            ],
+            btnText: "select plan",
+            btnHref: "#"
+        },
+        mars: {
+            img: "assets/images/mars.svg",
+            alt: "",
+            personal: "personal",
+            corrency: "$",
+            price: 29,
+            isMonth: true,
+            description: [
+                "Lorem ipsum dolor sit amet.",
+                "sed do eiusmod tempor incididunt ut.",
+                "Labore et dolore magna aliqua.",
+                "quis nostrud exercitation ullamco laboris.",
+                "Ea commodo consequat.",
+            ],
+            btnText: "select plan",
+            btnHref: "#"
+        },
+        roket: {
+            img: "assets/images/roket.svg",
+            alt: "",
+            personal: "personal",
+            corrency: "$",
+            price: 49,
+            isMonth: true,
+            description: [
+                "Lorem ipsum dolor sit amet.",
+                "sed do eiusmod tempor incididunt ut.",
+                "Labore et dolore magna aliqua.",
+                "quis nostrud exercitation ullamco laboris.",
+                "Ea commodo consequat.",
+            ],
+            btnText: "select plan",
+            btnHref: "#"
+        },
+    }
+
+
+mixin card(oneCard)
+    figure.card 
+        figcaption 
+            img(src=oneCard.img, alt=oneCard.alt)
+            p.personal  #{oneCard.personal}
+            p.price 
+                span.corrency  #{oneCard.corrency}
+                b  #{oneCard.price}
+                if oneCard.isMonth 
+                    | /isMonth
+                else 
+                    | /year
+            ul.description 
+                for itemText in oneCard.description 
+                    li #{itemText}
+            a(href=oneCard.btnHref) #{oneCard.btnText}        
+
+            
