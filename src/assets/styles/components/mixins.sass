@@ -1,0 +1,42 @@
+=btn ($fixed:true, $empty:false)
+    display: block
+    font-size: 12px
+    padding: 19px 0
+    letter-spacing: 1px
+    color: #c2c9db
+    font-weight: 400
+    text-align: center
+    text-transform: uppercase
+    text-decoration: none
+    border-radius: 25px
+    transition: .5s
+    &:hover
+        color: #fff
+        background-color: #6e45e2
+        border-color: #6e45e2
+    @if $fixed
+        width: 190px
+        box-shadow: 0 0 10.5px 10.5px rgba(204,204,223,0.5)
+        background-color: #fff
+        border: 1px solid #d7dbe8
+
+    @else
+        width: 150px
+        background-color: rgba(110, 69, 226,0)
+        border: 1px solid #fff
+    
+    @if $empty
+        background-color: #6e45e2
+        border: 1px solid #d4dbe8
+        &:hover
+            color: #6e45e2
+            background: #fff
+        
+
+=gradient($url)
+    background-color: #6e45e2
+    background-image: linear-gradient(-60deg, rgba(135, 211, 205, 0.8) 0%, #6d45e1 100%), url(#{$url}) center/cover
+
+=media($size)
+    @media screen and (min-width: #{$size}px)
+        @content    

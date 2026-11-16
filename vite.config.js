@@ -55,7 +55,7 @@ export default defineConfig({
     ],
 
     resolve: {
-        alians: {
+        alias: {
             '@': resolve(process.cwd(), 'src'),
             '@components': resolve(process.cwd(), 'src/components'),
             '@styles': resolve(process.cwd(), 'src/styles'),
@@ -77,15 +77,15 @@ export default defineConfig({
             output: {
                 assetFileNames: (assetInfo) => {
                     if (assetInfo.name && assetInfo.name.endsWith('.css')){
-                        return 'assets/styles.css '
+                        return 'assets/styles.css'
                     }
                     if (assetInfo.name && /\.(woff2?|ttf|otf|eot)$/.test(assetInfo.name)) {
-                        return 'assets/fonts/[name] [extname]'
+                        return 'assets/fonts/[name][extname]'
                     }
                     if (assetInfo.name && /\.(png|jpe?g|gif|svg|webp)$/.test(assetInfo.name)) {
-                        return 'assets/images/[name] [extname]'
+                        return 'assets/images/[name][extname]'
                     }
-                    return 'assets/[name] [extname]'
+                    return 'assets/[name][extname]'
                 },
                 chunkFileNames: 'assets/js/[name].js',
                 entryFileNames: 'assets/js/[name].js',
